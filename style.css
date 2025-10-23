@@ -1,0 +1,71 @@
+td {
+    width:150px;
+    height:150px;
+    font-size: 120px;
+    text-align: center;
+}
+
+
+
+#tl {
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-right:3px solid white;
+    border-bottom: 3px solid white;
+}
+
+#tm {
+    border-left: 3px solid black;
+    border-top: 3px solid white;
+    border-right:3px solid black;
+    border-bottom: 3px solid white;
+}
+
+#tr {
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-right:3px solid white;
+    border-bottom: 3px solid white;
+}
+
+#ml {
+   border-left: 3px solid white;
+    border-top: 3px solid black;
+    border-right:3px solid white;
+    border-bottom: 3px solid black;
+}
+
+#mm {
+    border-left: 3px solid black;
+    border-top: 3px solid black;
+    border-right:3px solid black;
+    border-bottom: 3px solid black;
+}
+
+#mr {
+    border-left: 3px solid white;
+    border-top: 3px solid black;
+    border-right:3px solid white;
+    border-bottom: 3px solid black;
+}
+
+#bl {
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-right:3px solid white;
+    border-bottom: 3px solid white;
+}
+
+#bm {
+    border-left: 3px solid black;
+    border-top: 3px solid white;
+    border-right:3px solid black;
+    border-bottom: 3px solid white;
+}
+
+#br {
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-right:3px solid white;
+    border-bottom: 3px solid white;
+}
