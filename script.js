@@ -28,12 +28,17 @@ slots.forEach(slot => {
             win = checkForWin(slots, player)
             if (win == true) {
                 messageBox.textContent = `${player} has won the game!`
+                const playAgainBtn = document.createElement("button")
+                playAgainBtn.textContent = "Play Again"
+                playAgainBtn.addEventListener("click", () => {
+                    window.location.reload()
+                })
+                document.getElementById("playAgain").appendChild(playAgainBtn)
             } else {
                 player = switchPlayer(player)
             messageBox.textContent = `${player}'s turn!`
             }
             
-
         } else {
             alert("space is taken")
         }
@@ -44,8 +49,8 @@ function removeClick(slots, player) {
     slots.forEach(slot => {
        slot.style.pointerEvents = "none"
     })
-    
 }
+
 function checkForWin(slots, player) {
     let win = false
     console.log(slots[0].textContent, slots[1].textContent, slots[2].textContent)

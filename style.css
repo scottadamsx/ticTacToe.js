@@ -1,71 +1,253 @@
-td {
-    width:150px;
-    height:150px;
-    font-size: 120px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #2d3436;
+    margin-bottom: 2rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+#messageBox {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #636e72;
+    margin-bottom: 3rem;
+    min-height: 2rem;
     text-align: center;
 }
 
+table {
+    border-collapse: collapse;
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
 
+td {
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: white;
+    position: relative;
+}
 
+td:hover:empty {
+    background: #fafafa;
+}
+
+td:active {
+    transform: scale(0.98);
+}
+
+/* Top row */
 #tl {
-    border-left: 3px solid white;
-    border-top: 3px solid white;
-    border-right:3px solid white;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: 3px solid #e8e8e8;
+    border-radius: 16px 0 0 0;
 }
 
 #tm {
-    border-left: 3px solid black;
-    border-top: 3px solid white;
-    border-right:3px solid black;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: 3px solid #e8e8e8;
 }
 
 #tr {
-    border-left: 3px solid white;
-    border-top: 3px solid white;
-    border-right:3px solid white;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 3px solid #e8e8e8;
+    border-radius: 0 16px 0 0;
 }
 
+/* Middle row */
 #ml {
-   border-left: 3px solid white;
-    border-top: 3px solid black;
-    border-right:3px solid white;
-    border-bottom: 3px solid black;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: 3px solid #e8e8e8;
 }
 
 #mm {
-    border-left: 3px solid black;
-    border-top: 3px solid black;
-    border-right:3px solid black;
-    border-bottom: 3px solid black;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: 3px solid #e8e8e8;
 }
 
 #mr {
-    border-left: 3px solid white;
-    border-top: 3px solid black;
-    border-right:3px solid white;
-    border-bottom: 3px solid black;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 3px solid #e8e8e8;
 }
 
+/* Bottom row */
 #bl {
-    border-left: 3px solid white;
-    border-top: 3px solid white;
-    border-right:3px solid white;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: none;
+    border-radius: 0 0 0 16px;
 }
 
 #bm {
-    border-left: 3px solid black;
-    border-top: 3px solid white;
-    border-right:3px solid black;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: 3px solid #e8e8e8;
+    border-bottom: none;
 }
 
 #br {
-    border-left: 3px solid white;
-    border-top: 3px solid white;
-    border-right:3px solid white;
-    border-bottom: 3px solid white;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0 0 16px 0;
+}
+
+/* Animation for placed marks */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+td:not(:empty) {
+    animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Style for X (blue) and O (orange) */
+td::before {
+    content: attr(data-player);
+}
+
+/* Blue for X */
+td:contains("x"),
+td {
+    color: #74b9ff;
+}
+
+/* We'll use JavaScript to add classes, but as fallback: */
+/* Check content and apply colors */
+td:not(:empty) {
+    font-weight: 700;
+}
+
+/* Add glow effect based on content */
+td[style*="color"] {
+    text-shadow: 0 0 20px currentColor;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+        margin-bottom: 1.5rem;
+    }
+    
+    #messageBox {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+    
+    td {
+        width: 100px;
+        height: 100px;
+        font-size: 70px;
+    }
+    
+    table {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    #messageBox {
+        font-size: 1.1rem;
+    }
+    
+    td {
+        width: 80px;
+        height: 80px;
+        font-size: 55px;
+    }
+    
+    table {
+        padding: 15px;
+    }
+}
+
+/* Button styles */
+button {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3436;
+    background: white;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background: #2d3436;
+    color: white;
+    border-color: #2d3436;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+div {
+    margin-bottom: 10px;
 }
